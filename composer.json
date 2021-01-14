@@ -1,0 +1,16 @@
+{
+  "name": "samuelhuang/swoole4phalcon",
+  "description": "phalcon4.x run in swoole4",
+  "minimum-stability": "stable",
+  "license": "WTFPL",
+  "authors": [
+    {
+      "name": "Samuel",
+      "email": "317684911@qq.com"
+    }
+  ],
+  "require": {
+    "phalcon/ide-stubs": "v4.0.6",
+    "ext-json": "*"
+  }
+}
