@@ -20,8 +20,10 @@ class IndexController extends ControllerBase
 	
 	public function testAction() {
     	$this->view->disable();
-    	$params = $this->request->getJsonRawBody(true);
-    	var_export($this->request->getLanguages());
+    	$key = uniqid('key');
+    	$value = uniqid('v');
+    	$this->cookies->set($key,$value);
+    	var_dump($key . '---' . $value);
     }
 }
 

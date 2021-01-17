@@ -9,6 +9,7 @@ use Phalcon\Session\Adapter\Stream as SessionAdapter;
 use Phalcon\Session\Manager as SessionManager;
 use Phalcon\Url as UrlResolver;
 use Swoole4phalcon\Extension\Request;
+use Swoole4phalcon\Extensions\Cookies;
 
 /**
  * Registering a router
@@ -73,3 +74,9 @@ $di->setShared('dispatcher', function() {
 
 //Request Raw Body support
 $di->set('request',Request::class);
+
+$di->setShared('swooleResponse',function() use ($response){
+	return $response;
+});
+
+$di->set('cookies',Cookies::class);

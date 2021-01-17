@@ -23,8 +23,13 @@ class ServeTask extends \Phalcon\Cli\Task
 		]);
 		$httpServer->on('request',function (Request $request,Response $response) use ($config){
 			$_COOKIE = $_REQUEST = $_POST = $_GET = [];
+			
+			
 			$request->post && $_POST = $request->post && $_REQUEST += $_POST;
-			$request->get && $_GET = $request->get && $_REQUEST += $_GET;
+			$request->get && $_REQUEST = array_merge($_REQUEST,$request->get) && $_GET = $request->get ;
+//			$_GET = $request->get;
+//			var_export($_GET);
+			
 			$request->cookie && $_COOKIE = $request->cookie;
 			foreach ($request->server as $key=>$item) {
 				$_SERVER[strtoupper($key)] = $item;
